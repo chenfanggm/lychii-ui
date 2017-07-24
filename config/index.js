@@ -47,11 +47,12 @@ const config = {
   compilerFailOnWarning: false,
   compilerQuiet: false,
   compilerVendors: [
-    /*'react',
-    'react-redux',
-    'react-router',
-    'react-router-redux',
-    'redux',*/
+    'react',
+    'react-dom',
+    //'react-redux',
+    //'react-router',
+    //'react-router-redux',
+    //'redux',
     'font-awesome-sass-loader',
     'jquery'
   ],
