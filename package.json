@@ -1,0 +1,22 @@
+{
+  "name": "bfc-ui-star-dust",
+  "version": "1.0.0",
+  "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/chenfanggm/bfc-ui-star-dust.git",
+  "keywords": [
+    "BFC",
+    "Change",
+    "Conduct",
+    "Commit"
+  ],
+  "author": "Chen Fang",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/chenfanggm/bfc-ui-star-dust/issues"
+  },
+  "homepage": "https://github.com/chenfanggm/bfc-ui-star-dust#readme"
+}
