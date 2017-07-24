@@ -33,7 +33,9 @@ const webpackConfig = {
       'node_modules'
     ],
     extensions: ['*', '.js', '.jsx', '.json'],
-    alias: {}
+    alias: {
+      'layout': paths.client('layout')
+    }
   },
   devtool: config.compilerSourceMap,
   externals: {},
