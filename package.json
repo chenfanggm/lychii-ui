@@ -1,5 +1,5 @@
 {
-  "name": "bfc-ui-star-dust",
+  "name": "bfc-ui-star",
   "version": "1.0.0",
   "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
   "main": "index.js",
