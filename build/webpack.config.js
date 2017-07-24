@@ -24,7 +24,7 @@ const webpackConfig = {
   },
   output: {
     path: paths.dist(),
-    filename: __DEV__ ? `[name].bundle.js` : `[name].[${config.compilerHashType}].bundle.js`,
+    filename: `[name].bundle.js`,
     publicPath: config.compilerPublicPath
   },
   resolve: {
