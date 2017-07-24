@@ -4,7 +4,12 @@
   "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
   "main": "index.js",
   "repository": "https://github.com/chenfanggm/bfc-ui-star-dust.git",
-  "keywords": [ "BFC", "Change", "Conduct", "Commit" ],
+  "keywords": [
+    "BFC",
+    "Change",
+    "Conduct",
+    "Commit"
+  ],
   "author": "Chen Fang",
   "license": "Apache-2.0",
   "engines": {
@@ -24,7 +29,7 @@
     "deploy:prod": "better-npm-run deploy:prod",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
-    "lint": "eslint client tests server",
+    "lint": "eslint src tests",
     "lint:fix": "npm run lint -- --fix"
   },
   "betterScripts": {
