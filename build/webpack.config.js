@@ -3,6 +3,7 @@ const argv = require('yargs').argv
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const debug = require('debug')('app:config:webpack')
 const config = require('../config')
 
@@ -18,13 +19,13 @@ if (__DEV__) {
 }
 const webpackConfig = {
   entry: {
-    main: mainEntry,
+    index: mainEntry,
     vendor: config.compilerVendors,
     normalize: [paths.client('normalize')]
   },
   output: {
     path: paths.dist(),
-    filename: `[name].bundle.js`,
+    filename: `[name].js`,
     publicPath: config.compilerPublicPath
   },
   resolve: {
@@ -49,7 +50,11 @@ const webpackConfig = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../package.json'),
+      to: path.resolve(__dirname, '../dist/package.json')
+    }])
   ]
 }
 

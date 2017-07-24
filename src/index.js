@@ -5,7 +5,6 @@ import MainLayout from 'layout/MainLayout'
 const bfc = (function () {
 
   const init = function (config) {
-
     const bfcMountNode = document.createElement('div')
     bfcMountNode.id = 'bfc-root'
 
@@ -58,7 +57,6 @@ const bfc = (function () {
     // Go!
     // --------------------------------------
     render()
-
   }
 
   return {
@@ -74,4 +72,4 @@ if (__DEV__) {
   })
 }
 
-export default bfc
+module.exports = bfc
