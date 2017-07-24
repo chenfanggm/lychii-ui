@@ -11,4 +11,4 @@ const bfc = (function () {
 
 }())
 
-module.exports = bfc
+export default bfc

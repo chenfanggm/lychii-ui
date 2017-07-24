@@ -3,20 +3,156 @@
   "version": "0.0.1",
   "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "git+https://github.com/chenfanggm/bfc-ui-star-dust.git",
-  "keywords": [
-    "BFC",
-    "Change",
-    "Conduct",
-    "Commit"
-  ],
+  "repository": "https://github.com/chenfanggm/bfc-ui-star-dust.git",
+  "keywords": [ "BFC", "Change", "Conduct", "Commit" ],
   "author": "Chen Fang",
   "license": "Apache-2.0",
+  "engines": {
+    "node": ">=8.1.0",
+    "npm": "^5.3.0"
+  },
   "bugs": {
     "url": "https://github.com/chenfanggm/bfc-ui-star-dust/issues"
   },
-  "homepage": "https://github.com/chenfanggm/bfc-ui-star-dust#readme"
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "better-npm-run dev",
+    "start": "better-npm-run start",
+    "compile": "better-npm-run compile",
+    "deploy": "better-npm-run deploy",
+    "deploy:dev": "better-npm-run deploy:dev",
+    "deploy:prod": "better-npm-run deploy:prod",
+    "test": "better-npm-run test",
+    "test:dev": "npm run test -- --watch",
+    "lint": "eslint client tests server",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "nodemon --exec babel-node bin/start",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "start": {
+      "command": "babel-node bin/start",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "compile": {
+      "command": "babel-node bin/compile",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
+    "deploy": {
+      "command": "npm run clean && npm run compile",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
+    "deploy:dev": {
+      "command": "npm run deploy",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "deploy:prod": {
+      "command": "npm run deploy",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "test": {
+      "command": "babel-node ./node_modules/karma/bin/karma start build/karma.config",
+      "env": {
+        "NODE_ENV": "test",
+        "DEBUG": "app:*"
+      }
+    }
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "better-npm-run": "0.0.15",
+    "chai-as-promised": "^6.0.0",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "lodash-es": "^4.17.4",
+    "moment": "^2.18.1",
+    "normalize.css": "^7.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.3",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-import": "^1.2.1",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babel-runtime": "^6.18.0",
+    "chai": "^4.0.2",
+    "chai-enzyme": "^0.7.1",
+    "css-loader": "^0.28.4",
+    "cssnano": "^3.10.0",
+    "enzyme": "^2.8.2",
+    "eslint": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "font-awesome-sass-loader": "^2.0.1",
+    "fs": "0.0.2",
+    "fs-extra": "^3.0.1",
+    "html-webpack-plugin": "^2.28.0",
+    "imports-loader": "^0.7.1",
+    "isparta-loader": "^2.0.0",
+    "karma": "^1.7.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack-with-fast-source-maps": "^1.10.1",
+    "mocha": "^3.4.2",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "phantomjs-polyfill": "0.0.2",
+    "phantomjs-prebuilt": "^2.1.14",
+    "postcss-loader": "^2.0.6",
+    "react-addons-test-utils": "^15.6.0",
+    "redux-devtools": "^3.4.0",
+    "redux-devtools-log-monitor": "^1.3.0",
+    "resolve-url-loader": "^2.0.3",
+    "sass-loader": "^6.0.6",
+    "sinon": "^2.3.4",
+    "sinon-chai": "^2.11.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0",
+    "yargs": "^8.0.2"
+  }
 }
