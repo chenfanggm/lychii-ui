@@ -1,6 +1,6 @@
 {
   "name": "bfc-ui-star",
-  "version": "0.0.5",
+  "version": "0.0.14",
   "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
   "main": "index.js",
   "repository": "https://github.com/chenfanggm/bfc-ui-star-dust.git",

@@ -19,9 +19,7 @@ if (__DEV__) {
 }
 const webpackConfig = {
   entry: {
-    index: mainEntry,
-    vendor: config.compilerVendors,
-    normalize: [paths.client('normalize')]
+    index: mainEntry
   },
   output: {
     path: paths.dist(),
@@ -242,15 +240,22 @@ if (__DEV__) {
   )
 }
 
-// Production Optimizations
+// Production Setting
 if (__PROD__) {
-  debug('Enable plugins for production optimization.')
+  debug('Enable plugins for production setting.')
+
+  // output library
+  webpackConfig.output.library = 'bfc-ui-star'
+  webpackConfig.output.libraryTarget = 'umd'
+  webpackConfig.output.umdNamedDefine =  true
+
+  // optimization
   webpackConfig.plugins.push(
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    /*new webpack.optimize.UglifyJsPlugin({
       sourceMap: !!config.devtool,
       comments: false,
       compress: {
@@ -265,17 +270,7 @@ if (__PROD__) {
         if_return: true,
         join_vars: true,
       }
-    })
-  )
-}
-
-// Bundle Splitting
-if (!__TEST__) {
-  debug('Enable plugins for bundle split.')
-  webpackConfig.plugins.push(
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'normalize', 'manifest']
-    })
+    })*/
   )
 }
 
