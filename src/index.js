@@ -1,27 +1,25 @@
 import './normalize'
+import baseConfig from './libs/baseConfig'
+import { initBFCWithGlobalRef } from './libs/core'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import baseConfig from './libs/baseConfig'
-import { createRootNode } from './libs/core'
-import MainLayout from 'layout/MainLayout'
+import AppContainer from './containers/AppContainer'
 
 const BFC = (function () {
 
   const init = function (configOverride) {
     const config = Object.assign({}, baseConfig, configOverride)
-    const BFC = {
-      config: config
-    }
+    const BFC = initBFCWithGlobalRef(config)
+    document.querySelector(config.mount)
+      .append(BFC.rootNode)
 
-    if (!window.BFC) window.BFC = BFC
-    const rootNode = createRootNode(config)
-
-
-    // setup react render
+    const root = document.getElementById('root')
+    // bootstrap react
     let render = () => {
       ReactDOM.render(
-        <MainLayout />,
-        rootNode
+        <AppContainer />,
+        root
       )
     }
 
@@ -30,7 +28,7 @@ const BFC = (function () {
       if (module.hot) {
         const renderError = (error) => {
           const RedBox = require('redbox-react').default
-          ReactDOM.render(<RedBox error={error} />, rootNode)
+          ReactDOM.render(<RedBox error={error} />, root)
         }
 
         // wrap render in try/catch
@@ -45,18 +43,15 @@ const BFC = (function () {
         }
 
         // setup hot module replacement
-        module.hot.accept('./', () =>
+        module.hot.accept('../containers/AppContainer', () =>
           setImmediate(() => {
-            ReactDOM.unmountComponentAtNode(rootNode)
+            ReactDOM.unmountComponentAtNode(root)
             render()
           })
         )
       }
     }
 
-    // --------------------------------------
-    // Go!
-    // --------------------------------------
     render()
   }
 
@@ -69,7 +64,7 @@ const BFC = (function () {
 // self bootstrap if in dev mode
 if (__DEV__) {
   BFC.init({
-    mount: 'root'
+    mount: '#root'
   })
 }
 

@@ -1,7 +1,8 @@
 export default {
+  mount: 'body',
   rootDomId: 'bfc-root',
-  width: 300,
-  height: 400,
+  width: 280,
+  height: 300,
   layout: 'bottom-right',
   backgroundColor: 'lightskyblue'
 }

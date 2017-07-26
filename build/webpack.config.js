@@ -255,7 +255,7 @@ if (__PROD__) {
       minimize: true,
       debug: false,
     }),
-    /*new webpack.optimize.UglifyJsPlugin({
+    new webpack.optimize.UglifyJsPlugin({
       sourceMap: !!config.devtool,
       comments: false,
       compress: {
@@ -270,7 +270,7 @@ if (__PROD__) {
         if_return: true,
         join_vars: true,
       }
-    })*/
+    })
   )
 }
 
