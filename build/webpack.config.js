@@ -13,17 +13,17 @@ const __PROD__ = config.compilerGlobals.__PROD__
 const __TEST__ = config.compilerGlobals.__TEST__
 
 debug('Init webpack config.')
-const mainEntry = [paths.client('index')]
+const mainEntry = [paths.client('main')]
 if (__DEV__) {
-  mainEntry.push(`webpack-hot-middleware/client.js?path=${config.compilerPublicPath}__webpack_hmr`)
+  mainEntry.push(`webpack-hot-middleware/client.js?path=${config.compilerPublicPath}__webpack_hmr&reload=true`)
 }
 const webpackConfig = {
   entry: {
-    index: mainEntry
+    main: mainEntry
   },
   output: {
     path: paths.dist(),
-    filename: `[name].js`,
+    filename: __DEV__ ? `[name].js` : `[name].[${config.compilerHashType}].js`,
     publicPath: config.compilerPublicPath
   },
   resolve: {
@@ -33,7 +33,6 @@ const webpackConfig = {
     ],
     extensions: ['*', '.js', '.jsx', '.json'],
     alias: {
-      'layout': paths.client('layout')
     }
   },
   devtool: config.compilerSourceMap,
@@ -66,7 +65,7 @@ webpackConfig.module.rules.push({
   use: [{
     loader: 'babel-loader',
     options: {
-      cacheDirectory: true,
+      //cacheDirectory: true,
       presets: [
         'babel-preset-react',
         ['babel-preset-env', {
@@ -151,34 +150,6 @@ const cssLoader = {
   }
 }
 
-// not used since css-loader already come with cssnano
-const postCssLoader = {
-  loader: 'postcss-loader',
-  options: {
-    sourceMap: !!config.compilerSourceMap,
-    ident: 'postcss',
-    plugins () {
-      return [
-        require('autoprefixer')({
-          add: true,
-          remove: true,
-          browsers: ['last 2 versions']
-        }),
-        require('cssnano')({
-          discardComments: {
-            removeAll: true
-          },
-          discardUnused: false,
-          mergeIdents: false,
-          reduceIdents: false,
-          safe: true,
-          sourcemap: true
-        })
-      ]
-    }
-  }
-}
-
 const sassLoader = {
   loader: 'sass-loader',
   options: {
@@ -201,7 +172,6 @@ webpackConfig.module.rules.push({
     fallback: 'style-loader',
     use: [
       cssLoader,
-      //postCssLoader,
       sassLoader
     ]
   })
@@ -211,10 +181,7 @@ webpackConfig.module.rules.push({
   test: /\.css$/,
   loader: extractStyles.extract({
     fallback: 'style-loader',
-    use: [
-      cssLoader,
-      //postCssLoaderå
-    ]
+    use: [cssLoader]
   })
 })
 

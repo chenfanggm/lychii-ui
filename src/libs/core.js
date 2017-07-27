@@ -1,26 +1,4 @@
 import { getGlobalConfig, getGlobalRootNode, getPixelFromNumber } from './utils'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import AppContainer from '../containers/AppContainer'
-
-export const initBFCWithGlobalRef = (config) => {
-
-  const BFC = {
-    config: config
-  }
-  // create global reference
-  if (!window.BFC) window.BFC = BFC
-
-  BFC.rootNode = createRootNode(config)
-  BFC.position = positionRootNode()
-
-  /*const render = initReactRender()
-
-  // Go!
-  render()*/
-
-  return BFC
-}
 
 export const createRootNode = (config) => {
   const rootNode = document.createElement('div')
@@ -53,11 +31,4 @@ export const positionRootNode = () => {
     x: nodeLeft,
     y: nodeTop
   }
-}
-
-const initReactRender = () => {
-  const rootNode = getGlobalRootNode()
-
-
-  //return render
 }
