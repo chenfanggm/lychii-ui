@@ -22,7 +22,7 @@ const LYCHII = (function () {
     if (!window.LYCHII) window.LYCHII = LYCHII
 
     document.querySelector(config.mount)
-      .append(config.root.node)
+      .append(config.root)
   }
 
   return {
