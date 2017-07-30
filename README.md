@@ -1,5 +1,5 @@
-# LYCHII - Born for C, Change, Conduct, Commit
-A new way of discovering the world
+# LYCHII Bot
+A new way to interactive with your service
 
 # Install
 * Clone this repo, and navigate to the directory
