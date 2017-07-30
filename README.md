@@ -1,4 +1,4 @@
-# LYCHII Bot
+# Lychii Bot
 A new way to interactive with your service
 
 # Install
