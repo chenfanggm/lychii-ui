@@ -19,11 +19,11 @@ if (__DEV__) {
 }
 const webpackConfig = {
   entry: {
-    main: mainEntry
+    index: mainEntry
   },
   output: {
     path: paths.dist(),
-    filename: __DEV__ ? `[name].js` : `[name].[${config.compilerHashType}].js`,
+    filename: `[name].js`,
     publicPath: config.compilerPublicPath
   },
   resolve: {

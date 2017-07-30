@@ -1,0 +1,15 @@
+.idea/
+bin/
+build/
+config/
+node_modules/
+server/
+src/
+tests/
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc
+.gitignore
+.npmignore
+nodemon.json

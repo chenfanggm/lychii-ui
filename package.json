@@ -1,10 +1,10 @@
 {
   "name": "lychii-ui",
-  "version": "0.0.14",
-  "description": "The UI interface for project LYCHII (Born-for-C, Change, Conduct, Commit)",
-  "main": "/dist/main.js",
+  "version": "0.0.20",
+  "description": "The UI interface for project LYCHII",
+  "main": "/dist/index.js",
   "repository": "https://github.com/chenfanggm/lychii-ui.git",
-  "keywords": ["Lychii", "Change", "Conduct", "Commit"],
+  "keywords": ["Lychii", "ReactBot", "CLI", "React"],
   "author": "Chen Fang",
   "license": "Apache-2.0",
   "engines": {
@@ -19,9 +19,8 @@
     "dev": "better-npm-run dev",
     "start": "better-npm-run start",
     "compile": "better-npm-run compile",
-    "deploy": "better-npm-run deploy",
+    "deploy": "better-npm-run deploy:prod",
     "deploy:dev": "better-npm-run deploy:dev",
-    "deploy:prod": "better-npm-run deploy:prod",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
     "lint": "eslint src tests",
@@ -48,23 +47,17 @@
         "DEBUG": "app:*"
       }
     },
-    "deploy": {
+    "deploy:prod": {
       "command": "npm run clean && npm run compile",
       "env": {
+        "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     },
     "deploy:dev": {
-      "command": "npm run deploy",
+      "command": "npm run clean && npm run compile",
       "env": {
         "NODE_ENV": "development",
-        "DEBUG": "app:*"
-      }
-    },
-    "deploy:prod": {
-      "command": "npm run deploy",
-      "env": {
-        "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     },
