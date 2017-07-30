@@ -1,4 +1,4 @@
-# BFC - Born for C, Change, Conduct, Commit
+# LYCHII - Born for C, Change, Conduct, Commit
 A new way of discovering the world
 
 # Install

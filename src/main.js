@@ -1,26 +1,28 @@
 import './normalize'
 import baseConfig from './libs/baseConfig'
-import { createRootNode, positionRootNode } from './libs/core'
-import './libs/render'
+import { createRoot, positionRoot, initRender } from './libs/core'
 
 import React from 'react'
 
-const BFC = (function () {
+const LYCHII = (function () {
 
   const init = function (configOverride) {
-
     const config = Object.assign({}, baseConfig, configOverride)
-    const rootNode = createRootNode(config)
+    const root = createRoot(config)
+    Object.assign(config, { root: root })
+    const rootPosition = positionRoot(config)
+    Object.assign(config, { position: rootPosition })
+    // go render app
+    initRender(config)
 
-    const BFC = {
-      config: config,
-      rootNode: rootNode
+    // create global LYCHII reference
+    const LYCHII = {
+      config: config
     }
-    // create global reference
-    if (!window.BFC) window.BFC = BFC
+    if (!window.LYCHII) window.LYCHII = LYCHII
 
-    BFC.position = positionRootNode()
-    document.querySelector(config.mount).append(BFC.rootNode)
+    document.querySelector(config.mount)
+      .append(config.root.node)
   }
 
   return {
@@ -29,6 +31,6 @@ const BFC = (function () {
 
 }())
 
-BFC.init()
+LYCHII.init()
 
-module.exports = BFC
+module.exports = LYCHII

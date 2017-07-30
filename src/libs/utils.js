@@ -1,14 +1,12 @@
-import baseConfig from './baseConfig'
-
 export const getPixelFromNumber = (number) => {
   return number + 'px'
 }
 
 export const getGlobalConfig = () => {
-  return window.BFC.config || baseConfig
+  return window.LYCHII.config
 }
 
 export const getGlobalRootNode = () => {
-  return window.BFC.rootNode
+  return window.LYCHII.config.root
 }
 

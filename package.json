@@ -1,10 +1,10 @@
 {
-  "name": "bfc-ui-star",
+  "name": "lychii-ui",
   "version": "0.0.14",
-  "description": "The UI interface for project BFC (Born-for-C, Change, Conduct, Commit)",
+  "description": "The UI interface for project LYCHII (Born-for-C, Change, Conduct, Commit)",
   "main": "/dist/main.js",
-  "repository": "https://github.com/chenfanggm/bfc-ui-star-dust.git",
-  "keywords": ["BFC", "Change", "Conduct", "Commit"],
+  "repository": "https://github.com/chenfanggm/lychii-ui.git",
+  "keywords": ["Lychii", "Change", "Conduct", "Commit"],
   "author": "Chen Fang",
   "license": "Apache-2.0",
   "engines": {
@@ -12,7 +12,7 @@
     "npm": "^5.3.0"
   },
   "bugs": {
-    "url": "https://github.com/chenfanggm/bfc-ui-star-dust/issues"
+    "url": "https://github.com/chenfanggm/lychii-ui/issues"
   },
   "scripts": {
     "clean": "rm -rf dist",

@@ -212,7 +212,7 @@ if (__PROD__) {
   debug('Enable plugins for production setting.')
 
   // output library
-  webpackConfig.output.library = 'bfc-ui-star'
+  webpackConfig.output.library = 'lychii-ui'
   webpackConfig.output.libraryTarget = 'umd'
   webpackConfig.output.umdNamedDefine =  true
 

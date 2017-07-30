@@ -1,6 +1,6 @@
 export default {
   mount: 'body',
-  rootDomId: 'bfc-root',
+  rootId: 'lychii-root',
   width: 280,
   height: 300,
   layout: 'bottom-right',
