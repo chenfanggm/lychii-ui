@@ -42,7 +42,7 @@ const config = {
   // ----------------------------------
   compilerPublicPath: '/',
   compilerHashType: 'hash',
-  compilerCssModules: true,
+  compilerCssModules: false,
   compilerSourceMap:  'source-map',
   compilerFailOnWarning: false,
   compilerQuiet: false,
@@ -53,8 +53,7 @@ const config = {
     //'react-router',
     //'react-router-redux',
     //'redux',
-    'font-awesome-sass-loader',
-    'jquery'
+    'font-awesome-sass-loader'
   ],
 
   // ----------------------------------

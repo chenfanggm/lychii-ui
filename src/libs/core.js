@@ -59,7 +59,6 @@ export const initRender = (_config) => {
       const renderApp = render
       render = () => {
         try {
-          console.log(1)
           renderApp()
         } catch (error) {
           console.error(error)

@@ -33,6 +33,7 @@ const webpackConfig = {
     ],
     extensions: ['*', '.js', '.jsx', '.json'],
     alias: {
+      'LIBS': paths.client('libs')
     }
   },
   devtool: config.compilerSourceMap,
@@ -43,11 +44,7 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.DefinePlugin(config.compilerGlobals),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
+    // new webpack.ProvidePlugin({}),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../package.json'),
       to: path.resolve(__dirname, '../dist/package.json')
@@ -91,8 +88,7 @@ webpackConfig.module.rules.push({
           {
             useBuiltIns: true // polyfill Object.assign in client/normalize.js
           }
-        ],
-        ['import', [{ libraryName: 'antd', style: "css" }]]
+        ]
       ]
     }
   }]
@@ -155,7 +151,7 @@ const sassLoader = {
   options: {
     sourceMap: !!config.compilerSourceMap,
     includePaths: [
-      paths.client('styles'),
+      paths.client('styles')
     ]
   }
 }

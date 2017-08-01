@@ -1,11 +1,11 @@
 import React from 'react'
-import OneColumnLayout from './OneColumnLayout'
+import Scene from './Scene'
 
 class RootContainer extends React.Component {
   render () {
     return (
-      <div style={{width: '100%'}} >
-        <OneColumnLayout />
+      <div style={{width: '100%', height: '100%'}} >
+        <Scene />
       </div>
     )
   }
