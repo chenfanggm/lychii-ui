@@ -1,7 +1,7 @@
 import { getGlobalConfig, getGlobalRootNode, getPixelFromNumber } from './utils'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppContainer from '../containers/AppContainer'
+import RootContainer from '../containers/RootContainer'
 
 export const createRoot = (config) => {
   const root = document.createElement('div')
@@ -42,7 +42,7 @@ export const initRender = (_config) => {
 
   let render = () => {
     ReactDOM.render(
-      <AppContainer />,
+      <RootContainer />,
       root
     )
   }
@@ -68,13 +68,13 @@ export const initRender = (_config) => {
       }
 
       // setup hot module replacement
-      module.hot.accept(['../containers/AppContainer'], () =>
+      module.hot.accept(['../containers/RootContainer'], () =>
         setImmediate(() => {
           ReactDOM.unmountComponentAtNode(root)
-          const AppContainer = require('../containers/AppContainer').default
+          const RootContainer = require('../containers/RootContainer').default
 
           ReactDOM.render(
-            <AppContainer />,
+            <RootContainer />,
             root
           )
         })

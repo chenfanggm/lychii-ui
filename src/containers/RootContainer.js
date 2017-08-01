@@ -1,14 +1,14 @@
 import React from 'react'
 import OneColumnLayout from './OneColumnLayout'
 
-class AppContainer extends React.Component {
+class RootContainer extends React.Component {
   render () {
     return (
-      <div>
+      <div style={{width: '100%'}} >
         <OneColumnLayout />
       </div>
     )
   }
 }
 
-export default AppContainer
+export default RootContainer
