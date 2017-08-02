@@ -5,9 +5,10 @@ class Terminal extends React.Component {
   render () {
     let { height } = this.props
     return (
-      <div className='terminal-container'
-           style={{height: height}} >
-        <input type='text' />
+      <div className='terminal-container'>
+        <input type='text'
+               className='terminal-input'
+                style={{height}}/>
       </div>
     )
   }

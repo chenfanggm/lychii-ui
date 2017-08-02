@@ -9,7 +9,7 @@ class OneColLayout extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      terminalHeight: 100
+      terminalHeight: 45
     }
   }
 

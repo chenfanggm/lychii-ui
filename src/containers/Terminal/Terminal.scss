@@ -1,3 +1,13 @@
+@import '../../styles/constants';
+
 .terminal-container {
   width: 100%;
+  padding: 3px;
+  background-color: $base-border-color;
+  border: 2px solid $base-border-color;
+
+  .terminal-input {
+    width: 100%;
+    height: $base-terminal-height;
+  }
 }

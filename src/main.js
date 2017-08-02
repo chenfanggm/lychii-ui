@@ -1,4 +1,5 @@
 import './normalize'
+import './styles/main.scss'
 import baseConfig from './libs/baseConfig'
 import { createRoot, positionRoot, initRender } from './libs/core'
 
