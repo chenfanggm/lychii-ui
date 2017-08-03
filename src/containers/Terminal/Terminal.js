@@ -8,7 +8,7 @@ class Terminal extends React.Component {
       <div className='terminal-container'>
         <input type='text'
                className='terminal-input'
-                style={{height}}/>
+               style={{height}}/>
       </div>
     )
   }

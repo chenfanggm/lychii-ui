@@ -1,0 +1,7 @@
+@import '../../styles/constants';
+.header-container {
+  width: 100%;
+  min-height: 70px;
+  padding: 5px 10px;
+  border-bottom: $base-border-light;
+}

@@ -8,8 +8,7 @@ export const createRoot = (config) => {
   root.id = config.rootId
   Object.assign(root.style, {
     width: getPixelFromNumber(config.width),
-    height: getPixelFromNumber(config.height),
-    backgroundColor: config.backgroundColor
+    height: getPixelFromNumber(config.height)
   })
   return root
 }
@@ -25,8 +24,8 @@ export const positionRoot = (_config) => {
   if (config.layout === 'bottom-right') {
     Object.assign(root.style, {
       position: 'fixed',
-      right: 0,
-      bottom: 0
+      right: '3px',
+      bottom: '3px'
     })
   }
 

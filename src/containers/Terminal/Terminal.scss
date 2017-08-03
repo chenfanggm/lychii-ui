@@ -2,12 +2,14 @@
 
 .terminal-container {
   width: 100%;
-  padding: 3px;
-  background-color: $base-border-color;
-  border: 2px solid $base-border-color;
+  padding: 0 3px 3px 3px;
 
   .terminal-input {
     width: 100%;
-    height: $base-terminal-height;
+    min-height: $base-terminal-min-height;
+    max-height: $base-terminal-max-height;
+    padding: 5px 10px;
+    border: 2px solid $base-border-color-light;
+    border-radius: 5px;
   }
 }

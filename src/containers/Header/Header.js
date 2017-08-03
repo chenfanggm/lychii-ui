@@ -1,10 +1,11 @@
+import './Header.scss'
 import React from 'react'
 
 class Header extends React.Component {
   render () {
     return (
-      <div style={{width: '100%'}}>
-        Hello, Canvas
+      <div className='header-container'>
+        This is Header
       </div>
     )
   }

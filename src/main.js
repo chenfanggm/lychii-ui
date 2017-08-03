@@ -1,6 +1,6 @@
 import './normalize'
 import './styles/main.scss'
-import baseConfig from './libs/baseConfig'
+import baseConfig from './libs/defaultConfig'
 import { createRoot, positionRoot, initRender } from './libs/core'
 
 import React from 'react'

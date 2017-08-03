@@ -27,8 +27,8 @@
     font-size: 1.6rem;
     line-height: 2.56rem;
     text-rendering: optimizeLegibility;
-    color: $text-color-primary;
-    background-color: $bg-color-primary;
+    color: $base-text-color;
+    background-color: $base-bg-color-primary;
 
     &.noScroll {
       overflow: hidden;
@@ -56,7 +56,7 @@
     padding: 0 1rem;
     border-left: 3px solid #cccccc;
     font: 2rem/1.5 'Lato', sans-serif;
-    color: $text-color-third;
+    color: $base-text-color-third;
   }
 
   *,

@@ -1,5 +1,5 @@
 /**
-* Application
+* Scene
 **/
 $app-min-width: 320px;
 $app-max-width: 960px;
@@ -14,10 +14,6 @@ $z-index-image-modal: 1004;
 * Header
 **/
 $navbar-height: 6rem;
-
-/**
-* Stage
-**/
 $toolbar-height: 4rem;
 
 /**
@@ -29,33 +25,43 @@ $page-min-height: 60rem;
 /**
 * Terminal
 **/
-$base-terminal-height: 10rem;
+$base-terminal-min-height: 3rem;
+$base-terminal-max-height: 15rem;
+
 
 /**
-* Color
+* Defaults
 **/
-// basic
+// basic-color
 $basic-color-primary: #FFFFFF !default;
 $basic-color-secondary: #3b3f51 !default;
 
-// background
-$bg-color-primary: #FFFFFF !default;
+// background-color
+$base-bg-color-primary: #FFFFFF !default;
 $bg-color-secondary: #333333 !default;
 $bg-color-third: #303030 !default;
 $bg-color-secondary-transparent: rgba(45, 45, 45, 0.9) !default;
 
+
 // border
 $base-border-color: rgba(30, 30, 30, 0.3);
+$base-border-color-light: rgba(30, 30, 30, 0.2);
+$base-border: 1px solid $base-border-color;
+$base-border-light: 1px solid $base-border-color-light;
+
+
+// box-shadow
+$base-box-shadow: 1px 1px 5px 0 rgba(50, 50, 50, 0.75);
 
 
 /**
 * Text
 **/
-$text-color-primary: #343434 !default;
-$text-color-secondary: #3B3B3B !default;
-$text-color-third: #666666 !default;
-$text-color-grey: #888888 !default;
-$text-color-light: #FEFEFE !default;
+$base-text-color: #343434 !default;
+$base-text-color-grey: #888888 !default;
+$base-text-color-light: #FEFEFE !default;
+$base-text-color-secondary: #3B3B3B !default;
+$base-text-color-third: #666666 !default;
 
 /**
 * Link
