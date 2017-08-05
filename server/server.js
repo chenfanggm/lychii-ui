@@ -1,5 +1,5 @@
 import path from 'path'
-import config from '../config/index'
+import config from '../config'
 import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import express from 'express'
