@@ -1,14 +1,14 @@
 import './Message.scss'
 import React from 'react'
 import moment from 'moment'
-import { defaultUserIcon, defaultUserName } from '../../libs/constants'
+import { DEFAULT_USER_ICON, DEFAULT_USER_NAME } from '../../libs/constants'
 
 class Message extends React.Component {
 
   render () {
     let { userIcon, username, content, timestamp } = this.props
-    userIcon = userIcon || defaultUserIcon
-    username = username || defaultUserName
+    userIcon = userIcon || DEFAULT_USER_ICON
+    username = username || DEFAULT_USER_NAME
     content = content || ''
 
     const date = timestamp ? moment(timestamp) : moment().format('hh:mm a')

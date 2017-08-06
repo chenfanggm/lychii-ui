@@ -1,25 +1,29 @@
 import './Terminal.scss'
 import React from 'react'
+import { KEY_CODE } from '../../libs/constants'
 
 class Terminal extends React.Component {
 
   constructor(props) {
     super(props)
-    this.onEnterDown = this.onEnterDown.bind(this)
+    this.onKeyDown = this.onKeyDown.bind(this)
   }
 
-  onEnterDown(event) {
-
+  onKeyDown(event) {
+    if (event.keyCode === KEY_CODE.ENTER) {
+      this.props.processTerminalInput(event.target.value)
+      event.target.value = ''
+    }
   }
 
-  render () {
+  render() {
     let { height } = this.props
     return (
       <div className='terminal-container'>
         <input type='text'
                className='terminal-input'
                style={{height}}
-        onKeyDown={this.onEnterDown}/>
+               onKeyDown={this.onKeyDown}/>
       </div>
     )
   }
