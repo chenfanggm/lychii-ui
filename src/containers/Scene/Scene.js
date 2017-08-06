@@ -8,7 +8,7 @@ class Scene extends React.Component {
 
   constructor(props) {
     super(props)
-    this.processTerminalInput.bind(this)
+    this.processTerminalInput = this.processTerminalInput.bind(this)
 
     this.state = {
       terminalHeight: 45,
@@ -22,7 +22,7 @@ class Scene extends React.Component {
   }
 
   processTerminalInput(value) {
-    this.setState({ payload: value });
+    this.setState({ messages: this.state.messages.concat([{ username: 'TwoOClockAM', payload: value }]) })
   }
 
   render() {

@@ -10,8 +10,10 @@ class Terminal extends React.Component {
   }
 
   onKeyDown(event) {
+    const { processTerminalInput } = this.props
+
     if (event.keyCode === KEY_CODE.ENTER) {
-      this.props.processTerminalInput(event.target.value)
+      processTerminalInput(event.target.value)
       event.target.value = ''
     }
   }
