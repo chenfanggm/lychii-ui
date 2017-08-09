@@ -13,12 +13,7 @@ class Scene extends React.Component {
 
     this.state = {
       terminalHeight: 45,
-      messages: [
-        { username: 'TwoOClockAm', payload: 'Hi Lychii, how are you doing today.' },
-        { username: 'TwoOClockAm', payload: 'I\'m having some questions for you.' },
-        { username: 'TwoOClockAm', payload: 'Do you happen to know how can I config the app?' },
-        { username: 'TwoOClockAm', payload: 'Do you mean the gear icon on the top right?' }
-      ]
+      messages: []
     }
   }
 

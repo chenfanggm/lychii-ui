@@ -5,7 +5,9 @@ class MessageBoard extends React.Component {
 
 
   render() {
-    const { messages } = this.props
+    let { messages } = this.props
+    messages = messages || []
+
     const messageList = messages.map((message, index) => {
       return <Message key={index}
                       username={message.username}
