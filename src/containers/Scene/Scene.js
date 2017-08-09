@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../Header'
 import Stage from '../Stage'
 import Terminal from '../Terminal'
+import { getAllMessage } from '../../services/MessageService'
 
 class Scene extends React.Component {
 
@@ -13,12 +14,19 @@ class Scene extends React.Component {
     this.state = {
       terminalHeight: 45,
       messages: [
-        { username: 'TwoOClockAm', payload: 'Hi Lychii, how are you doing today.'},
-        { username: 'TwoOClockAm', payload: 'I\'m having some questions for you.'},
-        { username: 'TwoOClockAm', payload: 'Do you happen to know how can I config the app?'},
-        { username: 'TwoOClockAm', payload: 'Do you mean the gear icon on the top right?'}
+        { username: 'TwoOClockAm', payload: 'Hi Lychii, how are you doing today.' },
+        { username: 'TwoOClockAm', payload: 'I\'m having some questions for you.' },
+        { username: 'TwoOClockAm', payload: 'Do you happen to know how can I config the app?' },
+        { username: 'TwoOClockAm', payload: 'Do you mean the gear icon on the top right?' }
       ]
     }
+  }
+
+  componentDidMount() {
+    getAllMessage()
+      .then((messages) => {
+        this.setState({ messages: messages })
+      })
   }
 
   processTerminalInput(value) {
@@ -26,7 +34,7 @@ class Scene extends React.Component {
   }
 
   render() {
-    const { messages, terminalHeight}= this.state
+    const { messages, terminalHeight } = this.state
 
     return (
       <div className='scene-container'>

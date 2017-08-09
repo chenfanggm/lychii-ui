@@ -1,37 +1,20 @@
 import './normalize'
 import './styles/main.scss'
-import baseConfig from './libs/defaultConfig'
-import { createRoot, positionRoot, initRender } from './libs/core'
+import lychii from './libs/lychii'
 
-import React from 'react'
+const initLychii = (config) => {
+  const lychiiInstance = lychii(config)
 
-const LYCHII = (function () {
+  let MOUNT_NODE = 'body'
+  if (config && config.mount)
+    MOUNT_NODE = config.mount
 
-  const init = function (configOverride) {
-    const config = Object.assign({}, baseConfig, configOverride)
-    const root = createRoot(config)
-    Object.assign(config, { root: root })
-    const rootPosition = positionRoot(config)
-    Object.assign(config, { position: rootPosition })
-    // go render app
-    initRender(config)
+  document.querySelector(MOUNT_NODE)
+    .append(lychiiInstance.rootDom)
+}
 
-    // create global LYCHII reference
-    const LYCHII = {
-      config: config
-    }
-    if (!window.LYCHII) window.LYCHII = LYCHII
+if (__DEBUG__) {
+  initLychii()
+}
 
-    document.querySelector(config.mount)
-      .append(config.root)
-  }
-
-  return {
-    init: init
-  }
-
-}())
-
-LYCHII.init()
-
-module.exports = LYCHII
+module.exports = initLychii

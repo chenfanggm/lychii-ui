@@ -2,11 +2,15 @@ export const getPixelFromNumber = (number) => {
   return number + 'px'
 }
 
-export const getGlobalConfig = () => {
-  return window.LYCHII.config
-}
+export const errorFilter = ({ withJsonFilter } = { withJsonFilter: true }) =>
+  (response) => {
+    if (!response.ok) {
+      throw response
+    }
 
-export const getGlobalRootNode = () => {
-  return window.LYCHII.config.root
-}
+    if (withJsonFilter) {
+      return response.json()
+    }
 
+    return response
+  }

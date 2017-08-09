@@ -5,15 +5,17 @@ module.exports = {
   development: (config) => ({
     compilerPublicPath: `http://${config.serverHost}:${config.serverPort}/`,
     proxy: {
-      enabled: false,
+      enabled: true,
+      match: /^\/api\/.*/,
       options: {
-        host: 'http://localhost:8000',
-        match: /^\/api\/.*/
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        ws: true
       }
     },
     compilerGlobals: {
       ...config.compilerGlobals,
-      __API_URL__: JSON.stringify(`http://${config.serverHost}:${config.serverPort}/api/v1`),
+      __API_URL__: `http://${config.serverHost}:${config.serverPort}/api/v1`,
     }
   }),
 
@@ -41,7 +43,7 @@ module.exports = {
     cache_control: { max_age: 2 * 60 * 60 * 1000 }, // 2 hours
     compilerGlobals: {
       ...config.compilerGlobals,
-      __API_URL__: JSON.stringify(`http://your_host_domian.com/api/v1`)
+      __API_URL__: 'http://your_host_domian.com/api/v1'
     }
   })
 }

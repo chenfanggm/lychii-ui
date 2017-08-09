@@ -23,7 +23,7 @@ const webpackConfig = {
   },
   output: {
     path: paths.dist(),
-    filename: `[name].js`,
+    filename: '[name].js',
     publicPath: config.compilerPublicPath
   },
   resolve: {
@@ -31,15 +31,15 @@ const webpackConfig = {
       paths.client(),
       'node_modules'
     ],
-    extensions: ['*', '.js', '.jsx', '.json'],
-    alias: {
+    extensions: ['*', '.js', '.jsx', '.json']
+    /*alias: {
       'LIBS': paths.client('libs')
-    }
+    }*/
   },
   devtool: config.compilerSourceMap,
   externals: {},
   module: {
-    noParse: /jquery/,
+    //noParse: /jquery/,
     rules: []
   },
   plugins: [
@@ -186,7 +186,7 @@ webpackConfig.plugins.push(extractStyles)
 // HTML Template
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
   template: paths.client('index.html'),
-  favicon: paths.client('static/favicon.ico'),
+  favicon: paths.client('statics/favicon.ico'),
   hash: false,
   inject: 'body',
   minify: {

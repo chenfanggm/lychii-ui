@@ -3,6 +3,7 @@ import config from '../config'
 import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import express from 'express'
+import proxy from 'http-proxy-middleware'
 import _debug from 'debug'
 
 const debug = _debug('app:server')
@@ -24,13 +25,18 @@ if (config.env === 'development') {
     quiet       : false,
     noInfo      : false,
     lazy        : false,
-    stats       : 'normal',
+    stats       : 'normal'
   }))
   app.use(require('webpack-hot-middleware')(compiler, {
     path: '/__webpack_hmr'
   }))
 
   app.use(express.static(path.resolve(config.baseDir, config.staticDir)))
+
+  // api proxy
+  if (config.proxy && config.proxy.enabled) {
+    app.use(config.proxy.match, proxy(config.proxy.options))
+  }
 
   // fallback all routes to index.html
   app.use('*', function (req, res, next) {

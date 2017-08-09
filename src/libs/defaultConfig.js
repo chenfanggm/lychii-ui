@@ -1,8 +1,11 @@
 export default {
-  mount: 'body',
   rootId: 'lychii-root',
   width: 350,
   height: 400,
-  layout: 'bottom-right',
+  layout: {
+    type: 'bottom-right',
+    right: '3px',
+    bottom: '3px'
+  },
   backgroundColor: 'lightskyblue'
 }

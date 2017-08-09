@@ -14,7 +14,7 @@ const config = {
   baseDir: path.resolve(__dirname, '..'),
   clientDir: 'src',
   distDir: 'dist',
-  staticDir: 'src/static',
+  staticDir: 'src/statics',
   testDir: 'tests',
 
   // ----------------------------------
@@ -31,7 +31,7 @@ const config = {
   },
   log: {
     console: {
-      level: "debug",
+      level: 'debug',
       timestamp: true,
       colorize: true
     }
@@ -71,6 +71,7 @@ config.compilerGlobals = {
     NODE_ENV: JSON.stringify(config.env)
   },
   __DEV__: config.env === 'development',
+  __DEBUG__: config.env === 'development' && !!process.env.DEBUG,
   __PROD__: config.env === 'production',
   __TEST__: config.env === 'test'
 }
